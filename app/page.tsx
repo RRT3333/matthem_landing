@@ -204,7 +204,7 @@ export default function MatheumLanding() {
               <div className="inline-flex items-center space-x-3 bg-coral-50 px-6 py-4 rounded-full">
                 <Heart className="h-6 w-6 text-coral-600" />
                 <span className="text-coral-800 font-medium">
-                  우리는 이런 간병인의 일상에서 출발했습니다
+                  맡흠은 간병인의 일상과 함께합니다
                 </span>
               </div>
             </div>
