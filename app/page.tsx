@@ -37,7 +37,7 @@ export default function MatheumLanding() {
               <Heart className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-warmGray-800">맡흠</h1>
-            <span className="text-sm text-warmGray-500 hidden sm:block">간병인을 위한 마음 돌봄 서비스</span>
+            <span className="text-sm text-warmGray-500 hidden sm:block">따뜻한 건강 동반자</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <Link href="#features" className="text-warmGray-700 hover:text-coral-600 transition-colors">
