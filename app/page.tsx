@@ -49,7 +49,7 @@ export default function MatheumLanding() {
             <Link href="#contact" className="text-warmGray-700 hover:text-coral-600 transition-colors">
               문의하기
             </Link>
-                         <Link href="/dashboard">
+                         <Link href="/beta-signup">
                <Button className="primary-button">
                  베타 신청하기
                </Button>
@@ -98,7 +98,7 @@ export default function MatheumLanding() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/dashboard">
+                <Link href="/beta-signup">
                   <Button size="lg" className="primary-button text-lg px-8 py-4 w-full">
                     베타 테스트 신청하기
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -336,7 +336,7 @@ export default function MatheumLanding() {
                   </div>
                 ))}
               </div>
-                             <Link href="/dashboard">
+                             <Link href="/beta-signup">
                  <Button size="lg" variant="secondary" className="bg-white text-coral-600 hover:bg-warmGray-50 px-12 py-4 text-xl font-semibold mt-8">
                    베타 테스트 신청하기
                  </Button>
@@ -377,7 +377,7 @@ export default function MatheumLanding() {
               </div>
 
               <div className="space-y-4">
-                <Link href="/dashboard">
+                <Link href="/beta-signup">
                   <Button size="lg" className="primary-button text-xl px-12 py-6 shadow-2xl">
                     지금 베타 테스트 신청하기
                     <ArrowRight className="ml-3 h-6 w-6" />
