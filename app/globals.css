@@ -1,3 +1,4 @@
+@import '@fontsource/pretendard/index.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -38,7 +39,7 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -89,6 +90,39 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
   }
 }
+
+/* 맡흠 서비스만의 따뜻한 컴포넌트 스타일 */
+@layer components {
+  .warm-card {
+    @apply bg-white rounded-2xl shadow-sm border border-warmGray-200 hover:shadow-md transition-all duration-300;
+  }
+  
+  .greeting-text {
+    @apply text-warmGray-800 font-medium leading-relaxed;
+  }
+  
+  .comfort-message {
+    @apply text-coral-600 italic font-normal text-lg leading-relaxed;
+  }
+  
+  .primary-button {
+    @apply bg-coral-400 hover:bg-coral-500 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+  
+  .secondary-button {
+    @apply bg-white hover:bg-coral-50 text-coral-600 border-2 border-coral-400 font-semibold py-3 px-6 rounded-full transition-all duration-300;
+  }
+  
+  .health-stat-card {
+    @apply warm-card p-6 text-center space-y-3;
+  }
+  
+  .section-padding {
+    @apply py-16 px-6 sm:px-8 lg:px-12;
+  }
+}
+
