@@ -104,7 +104,7 @@ export default function MatheumLanding() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/dashboard">
+                <Link href="https://v0-healthcare-platform-xi.vercel.app" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="secondary-button text-lg px-8 py-4 w-full">
                     서비스 둘러보기
                   </Button>
