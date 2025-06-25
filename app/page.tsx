@@ -3,428 +3,627 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   Heart,
-  FileText,
-  BarChart3,
+  Smile,
+  Shield,
   Clock,
   Users,
-  MessageCircle,
-  Shield,
+  Pill,
+  FileText,
+  Calendar,
   Star,
-  ChevronDown,
-  Smartphone,
-  CheckCircle,
+  ArrowRight,
+  Phone,
+  MessageCircle,
+  CheckCircle2,
+  Sparkles,
+  AlertTriangle,
+  Search,
+  Target,
+  Zap,
+  TrendingUp,
+  Activity,
+  Eye,
+  Brain,
+  Stethoscope,
+  Timer,
+  Lock,
 } from "lucide-react"
 import Link from "next/link"
 
-export default function HealthcareLanding() {
+export default function MediWatchLanding() {
+  const urgentMessages = [
+    "6개월째 정형외과를 돌았는데, 알고보니 통풍이었어요",
+    "우울한 기분이 계속됐는데, '나이 들어서 그런가보다' 하며 넘겼어요",
+    "건강검진에서 '이상 없음'이라고 했는데, 결국 당뇨였습니다",
+    "턱이 아파서 치과→정형외과→내과... 결국 통풍 진단까지 6개월"
+  ]
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Header */}
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="flex items-center justify-center">
-          <Heart className="h-8 w-8 text-blue-600" />
-          <span className="ml-2 text-xl font-bold text-gray-900">헬스계의 토스</span>
+      <header className="px-6 py-4 bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-blue-200 shadow-sm">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+              <Eye className="h-6 w-6 text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-blue-900">메디와치</h1>
+            <span className="text-sm text-blue-600 hidden sm:block font-medium">똑똑한 건강 파수꾼</span>
+          </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link href="#problem" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+              진단 지연 문제
+            </Link>
+            <Link href="#solution" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+              AI 솔루션
+            </Link>
+            <Link href="#evidence" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+              검증된 효과
+            </Link>
+            <Link href="/beta-signup">
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 font-semibold shadow-lg">
+                무료 베타 신청
+              </Button>
+            </Link>
+          </nav>
         </div>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link href="#features" className="text-sm font-medium hover:text-blue-600 transition-colors">
-            기능소개
-          </Link>
-          <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors">
-            후기
-          </Link>
-          <Link href="#faq" className="text-sm font-medium hover:text-blue-600 transition-colors">
-            FAQ
-          </Link>
-        </nav>
       </header>
 
       <main>
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-gray-900">
-                    건강관리, 더 이상
-                    <br />
-                    <span className="text-blue-600">혼자 하지 마세요</span>
-                  </h1>
-                  <p className="max-w-[600px] text-gray-600 md:text-xl leading-relaxed">
-                    진료·복약 정보를 자동으로 모아 요약하고,
-                    <br />
-                    복약 알림과 건강 리포트를 한 번에 관리하세요.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button
-                    size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold animate-pulse"
-                  >
-                    지금 사전등록하기
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-white text-blue-600 border-blue-600 hover:bg-blue-50 px-8 py-4"
-                  >
-                    서비스 둘러보기
-                  </Button>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>첫 100명 한정 베타 초대</span>
+        {/* Hero Section - 강력한 문제 제기 */}
+        <section className="section-padding min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <Badge variant="secondary" className="bg-red-100 text-red-700 px-4 py-2 rounded-full font-semibold">
+                  <AlertTriangle className="h-4 w-4 mr-2" />
+                  진단 지연 위기 해결
+                </Badge>
+                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  <span className="text-red-600">어디가 아픈지도 모르겠는데,</span><br />
+                  <span className="text-blue-600">병원을 다섯 군데나</span><br />
+                  돌았어요
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  통풍 진단까지 <strong className="text-red-600">5-10년</strong>, 우울증 <strong className="text-red-600">2-3년</strong>, 치매 <strong className="text-red-600">2-4년</strong>...<br />
+                  <span className="text-blue-700 font-semibold">신호는 있었지만 아무도 말해주지 않았습니다.</span>
+                </p>
+              </div>
+              
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                <div className="flex items-start space-x-3">
+                  <Stethoscope className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-blue-900 mb-2">미국 NIH 논문 사례</h3>
+                    <p className="text-blue-800 text-sm leading-relaxed">
+                      "58세 여성이 무릎 통증으로 정형외과를 수차례 방문. 6개월 후 혈액검사에서 통풍 진단. 
+                      <strong>그동안의 진료기록에서 이미 '신호'는 있었지만 아무도 해석해주지 않았습니다.</strong>"
+                    </p>
+                    <div className="text-xs text-blue-600 mt-2">
+                      출처: Misdiagnosis of rheumatoid arthritis in an elderly woman with gout
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <div className="relative">
-                  <div className="w-80 h-96 bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl shadow-2xl flex items-center justify-center">
-                    <Smartphone className="h-32 w-32 text-blue-600" />
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/beta-signup">
+                  <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-4 w-full shadow-xl font-semibold">
+                    <Timer className="mr-2 h-5 w-5" />
+                    100명 한정 무료 베타 신청
+                  </Button>
+                </Link>
+                <Link href="/dashboard">
+                  <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 w-full font-semibold">
+                    시연 영상 보기
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-red-600">5-10년</div>
+                  <p className="text-sm text-gray-600">통풍 진단 소요</p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-orange-600">2-3년</div>
+                  <p className="text-sm text-gray-600">우울증 진단 소요</p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-yellow-600">2-4년</div>
+                  <p className="text-sm text-gray-600">치매 진단 소요</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative">
+                <div className="bg-white p-8 rounded-2xl shadow-2xl border-l-4 border-red-500 animate-gentle-pulse">
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Brain className="h-8 w-8 text-red-600" />
+                      </div>
+                      <h3 className="font-bold text-gray-900 mb-2">메디와치 AI 분석 결과</h3>
+                      <div className="text-red-700 font-medium text-sm bg-red-50 p-3 rounded-lg">
+                        <strong>⚠️ 위험 신호 감지</strong><br/>
+                        "3개월간 정형외과 4회 방문 + 소염제 중복 처방<br/>
+                        → 통풍 의심 확률 <span className="text-red-800 font-bold">94%</span>"
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <span className="text-sm text-blue-800 font-medium">신경과 진료 즉시 권장</span>
+                        <Target className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                        <span className="text-sm text-green-800 font-medium">맞춤 병원 3곳 추천</span>
+                        <Calendar className="h-5 w-5 text-green-600" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute -top-4 -right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    NEW
-                  </div>
+                </div>
+                <div className="absolute -top-4 -right-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-warm-glow">
+                  AI 경보!
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Problem Empathy Section */}
-        <section className="w-full py-12 md:py-24 bg-gray-50">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="max-w-4xl mx-auto text-center space-y-8">
-              <div className="space-y-4">
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-orange-400">
-                  <p className="text-lg text-gray-700 italic">"매번 병원에서 뭘 말했는지 기억이 안 나요."</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-orange-400">
-                  <p className="text-lg text-gray-700 italic">"약 먹었는지 확인하려고 하루에도 몇 번씩 전화해요."</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                  우리는 이런 간병인의 일상에서 출발했습니다.
-                </h2>
-
-                <div className="grid md:grid-cols-3 gap-6 mt-8">
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <FileText className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <p className="font-semibold text-gray-900">건강정보를 자동으로 수집하고</p>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <BarChart3 className="h-6 w-6 text-green-600" />
-                    </div>
-                    <p className="font-semibold text-gray-900">쉽게 이해할 수 있도록 요약하고</p>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-2">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-purple-600" />
-                    </div>
-                    <p className="font-semibold text-gray-900">실천을 도와주는 복약 알림까지</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">건강관리의 모든 것을 한 곳에서</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                복잡한 건강정보를 쉽게 관리하고, 가족과 함께 건강을 지켜보세요.
+        {/* Problem Section - 기존 솔루션의 한계 */}
+        <section id="problem" className="section-padding bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                기존 시스템은 왜 해결하지 못했을까?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                데이터는 있지만 의미를 찾지 못하고, 편의기능만 제공할 뿐<br/>
+                <strong className="text-red-600">진짜 문제 해결에는 실패했습니다.</strong>
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <FileText className="h-6 w-6 text-blue-600" />
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                  <FileText className="h-6 w-6 text-blue-600 mr-3" />
+                  건강정보 고속도로 (보건복지부)
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mt-1" />
+                    <span className="text-gray-700">병원, 검진기록 열람 가능</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">진료·복약 자동 수집</h3>
-                  <p className="text-gray-600">
-                    HIRA API로 병원 기록을 한 번에 불러옵니다. 더 이상 종이 처방전을 잃어버릴 걱정 없어요.
-                  </p>
-                </CardContent>
-              </Card>
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="h-5 w-5 text-red-500 mt-1" />
+                    <span className="text-gray-700">의학 용어가 난해, 해석 불가</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="h-5 w-5 text-red-500 mt-1" />
+                    <span className="text-gray-700">아픈 이유를 설명하지 못함</span>
+                  </div>
+                </div>
+                <div className="bg-red-50 border border-red-200 p-4 rounded-lg">
+                  <p className="text-red-800 font-medium">❌ 데이터만 보여줄 뿐, 의미 있는 가치 도출 불가</p>
+                </div>
+              </div>
 
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <BarChart3 className="h-6 w-6 text-green-600" />
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                  <Pill className="h-6 w-6 text-orange-600 mr-3" />
+                  기존 서비스 (굿닥, 케어네이션 등)
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mt-1" />
+                    <span className="text-gray-700">병원검색, 간병인 매치</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">건강 리포트 요약</h3>
-                  <p className="text-gray-600">
-                    질병·복약 내역을 쉽게 요약하여 PDF로 정리. 의사선생님께 보여드리기도 편해요.
-                  </p>
-                </CardContent>
-              </Card>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle2 className="h-5 w-5 text-green-500 mt-1" />
+                    <span className="text-gray-700">복약알림 등 편의기능</span>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="h-5 w-5 text-red-500 mt-1" />
+                    <span className="text-gray-700">데이터 분석 및 진단 인사이트 부재</span>
+                  </div>
+                </div>
+                <div className="bg-orange-50 border border-orange-200 p-4 rounded-lg">
+                  <p className="text-orange-800 font-medium">❌ 편의기능 중심으로 실제 건강 문제 해결 못함</p>
+                </div>
+              </div>
+            </div>
 
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-purple-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">복약 알림</h3>
-                  <p className="text-gray-600">
-                    보호자와 함께 알림 받고 놓치지 않게 복용. 복약 기록도 자동으로 저장됩니다.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <Users className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">공유 기능</h3>
-                  <p className="text-gray-600">
-                    형제자매, 간병인과 리포트를 쉽게 공유. 모두가 함께 건강을 챙길 수 있어요.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
-                    <MessageCircle className="h-6 w-6 text-pink-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">정서적 위로</h3>
-                  <p className="text-gray-600">
-                    "오늘의 다정한 문장"으로 마음을 보듬어드립니다. 건강관리도 마음부터 시작이에요.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="space-y-4 p-0">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-indigo-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">안전한 보안</h3>
-                  <p className="text-gray-600">
-                    모든 건강정보는 암호화되어 안전하게 보관. 개인정보보호를 최우선으로 합니다.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8 rounded-2xl text-center">
+              <h3 className="text-2xl font-bold mb-4">메디와치만의 차별점</h3>
+              <p className="text-xl mb-6">병원, 약국, 보험사에 분산된 데이터를 수집 → AI 분석 → 질병 위험 신호 조기 감지</p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white/20 p-4 rounded-lg">
+                  <div className="text-3xl font-bold">95%</div>
+                  <div>위험 신호 감지 정확도</div>
+                </div>
+                <div className="bg-white/20 p-4 rounded-lg">
+                  <div className="text-3xl font-bold">5년→1년</div>
+                  <div>진단 시간 단축 목표</div>
+                </div>
+                <div className="bg-white/20 p-4 rounded-lg">
+                  <div className="text-3xl font-bold">HIRA API</div>
+                  <div>공식 의료 데이터 연동</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Problem & Solution Highlight */}
-        <section className="w-full py-12 md:py-24 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-          <div className="container px-4 md:px-6 mx-auto text-center">
-            <div className="max-w-4xl mx-auto space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">간병도, 건강관리도 결국 사람의 몫이었습니다</h2>
-              <p className="text-xl opacity-90 leading-relaxed">
-                공공 앱은 데이터만 보여줍니다.
-                <br />
-                우리는 복잡한 정보를 이해하고 <strong>실제로 실천할 수 있도록 돕습니다.</strong>
+        {/* Solution Section - 메디와치의 해결 방법 */}
+        <section id="solution" className="section-padding bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                메디와치는 어떻게 해결하나요?
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                5단계 AI 분석 시스템으로 숨겨진 질병 신호를 찾아내어<br/>
+                <strong className="text-blue-600">조기 발견부터 맞춤 치료까지 연결합니다</strong>
               </p>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold mt-8"
-              >
-                지금 시작하기
-              </Button>
+            </div>
+
+            <div className="mb-16">
+              <div className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
+                <div className="flex-1 text-center">
+                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-xl">1</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">데이터 연동</h3>
+                  <p className="text-gray-600 text-sm">HIRA API로 진료·처방 기록 자동 수집</p>
+                </div>
+                <ArrowRight className="h-8 w-8 text-blue-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-xl">2</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">AI 분석</h3>
+                  <p className="text-gray-600 text-sm">병원 방문 패턴 + 처방 데이터 분석</p>
+                </div>
+                <ArrowRight className="h-8 w-8 text-blue-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-xl">3</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">위험 신호 감지</h3>
+                  <p className="text-gray-600 text-sm">만성질환 조기 신호 감지 + 즉시 알림</p>
+                </div>
+                <ArrowRight className="h-8 w-8 text-blue-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-xl">4</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">맞춤 체크리스트</h3>
+                  <p className="text-gray-600 text-sm">의심 질환별 증상 확인 체크리스트</p>
+                </div>
+                <ArrowRight className="h-8 w-8 text-blue-400 hidden md:block" />
+                <div className="flex-1 text-center">
+                  <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold text-xl">5</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">병원 추천</h3>
+                  <p className="text-gray-600 text-sm">특화 병원 추천 + 예약 연결</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="p-8 hover:shadow-2xl transition-shadow duration-300 border-l-4 border-blue-500">
+                <CardContent className="p-0 space-y-4">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Brain className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">AI 패턴 분석</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    최근 6개월간 정형외과 3회 내원 + 소염제 중복 처방 → <strong className="text-blue-600">통풍 의심 94% 확률</strong>
+                  </p>
+                  <div className="pt-2">
+                    <span className="text-blue-600 font-medium text-sm">→ 실제 사례 기반 학습된 AI</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="p-8 hover:shadow-2xl transition-shadow duration-300 border-l-4 border-indigo-500">
+                <CardContent className="p-0 space-y-4">
+                  <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
+                    <Zap className="h-8 w-8 text-indigo-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">즉시 알림 시스템</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    위험 신호 감지 즉시 푸시 알림 + 가족 공유 + 맞춤 체크리스트 제공
+                  </p>
+                  <div className="pt-2">
+                    <span className="text-indigo-600 font-medium text-sm">→ 24시간 이내 즉시 대응</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="p-8 hover:shadow-2xl transition-shadow duration-300 border-l-4 border-purple-500">
+                <CardContent className="p-0 space-y-4">
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                    <Target className="h-8 w-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">정밀 병원 매칭</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    감지된 질환별 특화 병원 + 전문의 추천 + 예약 시스템 연동
+                  </p>
+                  <div className="pt-2">
+                    <span className="text-purple-600 font-medium text-sm">→ 진료 성공률 80% 향상</span>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Testimonials & Social Proof */}
-        <section id="testimonials" className="w-full py-12 md:py-24">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">실제 사용자들의 이야기</h2>
+        {/* Evidence Section - 검증된 효과 */}
+        <section id="evidence" className="section-padding bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                검증된 효과와 목표
+              </h2>
+              <p className="text-xl text-gray-600">
+                의료진 검증을 거친 AI 시스템으로 실제 성과를 입증했습니다
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              <Card className="p-6">
-                <CardContent className="space-y-4 p-0">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold text-gray-900">현재 문제 현황</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg border border-red-200">
+                    <div>
+                      <div className="font-bold text-red-800">통풍</div>
+                      <div className="text-sm text-red-600">첫 발작 기준</div>
+                    </div>
+                    <div className="text-2xl font-bold text-red-600">5-10년</div>
                   </div>
-                  <p className="text-gray-700 italic">
-                    "진짜 감동했어요. 이제 엄마 약 먹은 시간도 기억하지 않아도 되니까요."
-                  </p>
-                  <div className="text-sm text-gray-500">– 채OO 님, 53세, 간병 중</div>
-                </CardContent>
-              </Card>
+                  <div className="flex items-center justify-between p-4 bg-orange-50 rounded-lg border border-orange-200">
+                    <div>
+                      <div className="font-bold text-orange-800">우울증</div>
+                      <div className="text-sm text-orange-600">증상 시작 후</div>
+                    </div>
+                    <div className="text-2xl font-bold text-orange-600">2-3년</div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <div>
+                      <div className="font-bold text-yellow-800">치매</div>
+                      <div className="text-sm text-yellow-600">초기 증상 후</div>
+                    </div>
+                    <div className="text-2xl font-bold text-yellow-600">2-4년</div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <div>
+                      <div className="font-bold text-purple-800">심부전/당뇨</div>
+                      <div className="text-sm text-purple-600">'건강검진 이상무'</div>
+                    </div>
+                    <div className="text-2xl font-bold text-purple-600">수개월-수년</div>
+                  </div>
+                </div>
+              </div>
 
-              <Card className="p-6">
-                <CardContent className="space-y-4 p-0">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold text-gray-900">메디와치 목표</h3>
+                <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-8 rounded-2xl">
+                  <div className="text-center mb-6">
+                    <div className="text-4xl font-bold mb-2">5년 → 1년</div>
+                    <p className="text-xl">고령자 4대 중증 만성질환 진단기간 단축</p>
                   </div>
-                  <p className="text-gray-700 italic">
-                    "병원에서 받은 처방전을 일일이 정리할 필요가 없어서 정말 편해요."
-                  </p>
-                  <div className="text-sm text-gray-500">– 김OO 님, 47세, 부모님 건강관리</div>
-                </CardContent>
-              </Card>
-
-              <Card className="p-6">
-                <CardContent className="space-y-4 p-0">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="bg-white/20 p-4 rounded-lg">
+                      <div className="text-2xl font-bold">95%</div>
+                      <div className="text-sm">신호 감지 정확도</div>
+                    </div>
+                    <div className="bg-white/20 p-4 rounded-lg">
+                      <div className="text-2xl font-bold">80%</div>
+                      <div className="text-sm">진료 성공률 향상</div>
+                    </div>
+                    <div className="bg-white/20 p-4 rounded-lg">
+                      <div className="text-2xl font-bold">24시간</div>
+                      <div className="text-sm">위험 신호 감지 시간</div>
+                    </div>
+                    <div className="bg-white/20 p-4 rounded-lg">
+                      <div className="text-2xl font-bold">50%</div>
+                      <div className="text-sm">재발률 감소</div>
+                    </div>
                   </div>
-                  <p className="text-gray-700 italic">"형제들과 아버지 건강상태를 공유할 수 있어서 마음이 놓여요."</p>
-                  <div className="text-sm text-gray-500">– 이OO 님, 41세, 가족 건강관리</div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">42%</div>
-                <p className="text-gray-600">복약 누락률 감소</p>
+            <div className="bg-blue-50 border border-blue-200 p-8 rounded-2xl text-center">
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">Aha Moment 정의</h3>
+              <p className="text-lg text-blue-800 mb-6">
+                앱 설치 후 <strong>7일 이내</strong> 건강정보 연동 → 첫 번째 위험 신호 리포트 확인
+              </p>
+              <div className="inline-flex items-center space-x-3 bg-blue-100 px-6 py-3 rounded-full">
+                <Brain className="h-5 w-5 text-blue-600" />
+                <span className="text-blue-800 font-medium">
+                  "이 앱이 내 몸의 위험 신호를 미리 알려준다"는 가치 체감
+                </span>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">94%</div>
-                <p className="text-gray-600">사용자 만족도</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">78%</div>
-                <p className="text-gray-600">3일 이상 지속 사용률</p>
-              </div>
-            </div>
-
-            {/* Social Proof */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <Badge variant="secondary" className="px-4 py-2 text-sm">
-                📣 S헬스케어 창업캠프 우수팀 선정
-              </Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm">
-                📰 디지털 헬스 전문 매체 "HealthIT" 인터뷰 예정
-              </Badge>
             </div>
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="w-full py-12 md:py-24 bg-gradient-to-b from-green-50 to-blue-50">
-          <div className="container px-4 md:px-6 mx-auto text-center">
-            <div className="max-w-2xl mx-auto space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">사전 등록하고 베타 테스트 초대 받기</h2>
-              <p className="text-xl text-gray-600">첫 100명 한정으로 베타 서비스를 무료로 체험해보세요.</p>
+        {/* CTA Section - 강력한 베타 신청 */}
+        <section className="section-padding bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="space-y-8">
+              <Badge variant="secondary" className="bg-white/20 text-white px-6 py-3 text-lg font-bold rounded-full">
+                <Timer className="h-5 w-5 mr-2" />
+                베타 테스터 100명 한정 모집
+              </Badge>
+              
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+                미리 알았다면 달랐을<br/>
+                <span className="text-yellow-300">그 6개월을 되돌려드립니다</span>
+              </h2>
+              
+              <p className="text-xl opacity-95 leading-relaxed max-w-2xl mx-auto">
+                더 이상 병원을 돌며 시간을 낭비하지 마세요.<br/>
+                AI가 찾아내는 위험 신호로 <strong>소중한 1년을 되찾으세요.</strong>
+              </p>
 
-              <div className="space-y-4">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-12 py-4 text-xl font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
-                >
-                  지금 사전등록하기
-                </Button>
+              <div className="grid md:grid-cols-4 gap-6 my-12">
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                  <div className="text-3xl font-bold mb-2">100명</div>
+                  <p className="text-lg">베타 테스터 한정</p>
+                  <p className="text-sm opacity-80">선착순 마감</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                  <div className="text-3xl font-bold mb-2">완전무료</div>
+                  <p className="text-lg">베타 기간 전체</p>
+                  <p className="text-sm opacity-80">추가 비용 없음</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                  <div className="text-3xl font-bold mb-2">24시간</div>
+                  <p className="text-lg">신청 후 연락</p>
+                  <p className="text-sm opacity-80">빠른 시작 지원</p>
+                </div>
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                  <div className="text-3xl font-bold mb-2">의료진</div>
+                  <p className="text-lg">검증 완료</p>
+                  <p className="text-sm opacity-80">안전성 보장</p>
+                </div>
+              </div>
 
-                <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
-                  <div className="flex items-center gap-1">
+              <div className="space-y-6">
+                <Link href="/beta-signup">
+                  <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100 text-xl px-16 py-6 shadow-2xl font-bold text-center w-full md:w-auto">
+                    <Eye className="mr-3 h-6 w-6" />
+                    지금 무료 베타 신청하기
+                    <ArrowRight className="ml-3 h-6 w-6" />
+                  </Button>
+                </Link>
+                
+                <div className="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8 text-sm opacity-90">
+                  <div className="flex items-center space-x-2">
+                    <Shield className="h-4 w-4" />
+                    <span>의료진 검증된 AI 시스템</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Lock className="h-4 w-4" />
+                    <span>개인정보 완전 보호</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
                     <Clock className="h-4 w-4" />
-                    <span>첫 100명 한정 베타 초대</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MessageCircle className="h-4 w-4" />
-                    <span>등록 후 24시간 내 우선 알림 발송</span>
+                    <span>언제든 서비스 중단 가능</span>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* FAQ Section */}
-        <section id="faq" className="w-full py-12 md:py-24 bg-white">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">자주 묻는 질문</h2>
-            </div>
-
-            <div className="max-w-3xl mx-auto space-y-4">
-              <details className="group border border-gray-200 rounded-lg">
-                <summary className="flex justify-between items-center cursor-pointer p-6 font-semibold text-gray-900">
-                  건강정보는 어디서 수집되나요?
-                  <ChevronDown className="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="px-6 pb-6 text-gray-600">
-                  HIRA(건강보험심사평가원) API를 통해 인증 후 자동 수집됩니다. 본인의 동의 하에 공식 경로로만 정보를
-                  가져오므로 안전합니다.
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
+                <h4 className="font-bold text-lg mb-3">베타 테스터 특별 혜택</h4>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-300" />
+                    <span>평생 프리미엄 기능 무료</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-300" />
+                    <span>전담 의료진 상담 지원</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-300" />
+                    <span>가족 계정 5개 무료 추가</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-300" />
+                    <span>서비스 개선 의견 직접 반영</span>
+                  </div>
                 </div>
-              </details>
-
-              <details className="group border border-gray-200 rounded-lg">
-                <summary className="flex justify-between items-center cursor-pointer p-6 font-semibold text-gray-900">
-                  개인정보는 안전한가요?
-                  <ChevronDown className="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="px-6 pb-6 text-gray-600">
-                  모든 정보는 암호화되며, 본인의 명시적 동의 없이는 사용되지 않습니다. 개인정보보호법을 준수하여 최고
-                  수준의 보안을 제공합니다.
-                </div>
-              </details>
-
-              <details className="group border border-gray-200 rounded-lg">
-                <summary className="flex justify-between items-center cursor-pointer p-6 font-semibold text-gray-900">
-                  이용 요금이 있나요?
-                  <ChevronDown className="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="px-6 pb-6 text-gray-600">
-                  베타 기간 동안은 완전 무료입니다. 이후 일부 유료 기능이 추가될 수 있지만, 기본 기능은 계속 무료로
-                  제공될 예정입니다.
-                </div>
-              </details>
-
-              <details className="group border border-gray-200 rounded-lg">
-                <summary className="flex justify-between items-center cursor-pointer p-6 font-semibold text-gray-900">
-                  가족과 함께 사용할 수 있나요?
-                  <ChevronDown className="h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform" />
-                </summary>
-                <div className="px-6 pb-6 text-gray-600">
-                  네, 가족 구성원을 초대하여 건강정보를 공유하고 함께 관리할 수 있습니다. 각자의 권한을 설정하여 필요한
-                  정보만 공유 가능합니다.
-                </div>
-              </details>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-6 bg-gray-900 text-white">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center">
-              <Heart className="h-6 w-6 text-blue-400" />
-              <span className="ml-2 text-lg font-semibold">헬스계의 토스</span>
+      <footer id="contact" className="bg-gray-900 text-white section-padding">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+                  <Eye className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">메디와치</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                AI 기반 만성질환 조기 감지로<br />
+                소중한 가족의 건강을 지키는<br />
+                똑똑한 건강 파수꾼
+              </p>
             </div>
-            <div className="flex gap-6 text-sm">
-              <Link href="#" className="hover:text-blue-400 transition-colors">
-                개인정보처리방침
+            
+            <div>
+              <h4 className="font-semibold mb-4 text-blue-400">핵심 기능</h4>
+              <div className="space-y-2">
+                <Link href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">
+                  위험 신호 AI 감지
+                </Link>
+                <Link href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">
+                  맞춤 병원 추천
+                </Link>
+                <Link href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">
+                  가족 건강 모니터링
+                </Link>
+                <Link href="#" className="block text-gray-300 hover:text-blue-400 transition-colors">
+                  실시간 건강 경보
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 text-blue-400">베타 지원</h4>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <MessageCircle className="h-5 w-5 text-blue-400" />
+                  <span className="text-gray-300">support@mediwatch.co.kr</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-blue-400" />
+                  <span className="text-gray-300">1588-0000</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Clock className="h-5 w-5 text-blue-400" />
+                  <span className="text-gray-300">평일 9시-18시</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 text-blue-400">베타 신청</h4>
+              <Link href="/beta-signup">
+                <Button className="bg-red-600 hover:bg-red-700 text-white w-full mb-4">
+                  <Timer className="mr-2 h-4 w-4" />
+                  100명 한정 신청
+                </Button>
               </Link>
-              <Link href="#" className="hover:text-blue-400 transition-colors">
-                이용약관
-              </Link>
-              <Link href="#" className="hover:text-blue-400 transition-colors">
-                고객지원
-              </Link>
+              <p className="text-xs text-gray-400">
+                의료진 검증을 거친<br/>
+                안전한 AI 헬스케어 서비스
+              </p>
             </div>
           </div>
-          <div className="mt-4 pt-4 border-t border-gray-700 text-center text-sm text-gray-400">
-            © 2024 헬스계의 토스. 모든 권리 보유.
+          
+          <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-gray-400 text-sm">
+              © 2024 메디와치. 모든 권리 보유.
+            </div>
+            <div className="flex space-x-6 text-sm text-gray-400">
+              <Link href="#" className="hover:text-blue-400 transition-colors">개인정보처리방침</Link>
+              <Link href="#" className="hover:text-blue-400 transition-colors">서비스 이용약관</Link>
+              <Link href="#" className="hover:text-blue-400 transition-colors">의료진 검증 정보</Link>
+              <Link href="#" className="hover:text-blue-400 transition-colors">AI 시스템 안전성</Link>
+            </div>
           </div>
         </div>
       </footer>
